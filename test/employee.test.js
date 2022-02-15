@@ -20,4 +20,42 @@ describe('Employee', () => {
             expect(cb).toThrowError(errorMsg)
         })
     })
+    describe('getName', () => {
+        it('Should return Employee name property', () => {
+            let expectedName = 'Joe';
+
+            let newEmployee = new Employee('Bob', 1, "testemail" )
+
+            expect(newEmployee.name).toEqual(expectedName);
+        })
+    })
+    describe('getId', () => {
+        it('Should return Employee id property', () => {
+            let expectedId = '1';
+
+            let newEmployee = new Employee('Bob', 1, "testemail" )
+
+            expect(newEmployee.id).toEqual(expectedId);
+        })
+    })
+    describe('getEmail', () => {
+        it('Should return Employee email property', () => {
+            let expectedEmail = 'testemail';
+
+            let newEmployee = new Employee('Bob', 1, "testemail" )
+
+            expect(newEmployee.email).toEqual(expectedEmail);
+        })
+    })
+    describe('getRole', () => {
+        it('Should return Employee role property', () => {
+            const role = 'Employee'
+
+            let expectedRole = 'Employee';
+
+            let newEmployee = new Employee('Bob', 1, "testemail" )
+
+            expect(newEmployee.role).toEqual(expectedRole);
+        })
+    })
 })
