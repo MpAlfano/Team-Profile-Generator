@@ -24,7 +24,7 @@ describe('Employee', () => {
         it('Should return Employee name property', () => {
             let expectedName = 'Joe';
 
-            let newEmployee = new Employee('Bob', 1, "testemail" )
+            let newEmployee = new Employee(expectedName, 1, "testemail" )
 
             expect(newEmployee.name).toEqual(expectedName);
         })
@@ -33,7 +33,7 @@ describe('Employee', () => {
         it('Should return Employee id property', () => {
             let expectedId = '1';
 
-            let newEmployee = new Employee('Bob', 1, "testemail" )
+            let newEmployee = new Employee('Joe', expectedId, "testemail" )
 
             expect(newEmployee.id).toEqual(expectedId);
         })
@@ -42,7 +42,7 @@ describe('Employee', () => {
         it('Should return Employee email property', () => {
             let expectedEmail = 'testemail';
 
-            let newEmployee = new Employee('Bob', 1, "testemail" )
+            let newEmployee = new Employee('Joe', 1, expectedEmail )
 
             expect(newEmployee.email).toEqual(expectedEmail);
         })
@@ -53,9 +53,9 @@ describe('Employee', () => {
 
             let expectedRole = 'Employee';
 
-            let newEmployee = new Employee('Bob', 1, "testemail" )
+            let newEmployee = new Employee('Joe', 1, "testemail" )
 
-            expect(newEmployee.role).toEqual(expectedRole);
+            expect(newEmployee.getRole()).toEqual(expectedRole);
         })
     })
 })

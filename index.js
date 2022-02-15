@@ -8,6 +8,8 @@ const Manager = require('./lib/manager')
 
 const generateProfile = require('./utils/generateProfile.js');
 
+var employees = []; 
+
 //Manager Function to ask for name, id, email and office number
 function employeeManager() {
     const input = [{
@@ -23,7 +25,7 @@ function employeeManager() {
         message: "What is your email?",
         name: "email"
     }, {
-        type: "list",
+        type: "input",
         message: "What is your office number?",
         name: "officeNumber"
     }];
@@ -45,7 +47,7 @@ function employeeEngineer() {
         message: "What is your email?",
         name: "email"
     }, {
-        type: "list",
+        type: "input",
         message: "What is your github?",
         name: "github"
     }];
@@ -67,15 +69,25 @@ function employeeIntern() {
         message: "What is your email?",
         name: "email"
     }, {
-        type: "list",
+        type: "input",
         message: "What school did you attend?",
         name: "officeNumber"
     }];
-    return inquirer.prompt(input);
+    inquirer.prompt(input).then
+    //store data
+    choice()
 }
 
 //Function to trigger after manager info, asking to add engineers or interns
+function choice() {
+    const input = [{
+        type: "list",
+        message: "Add an enginner or intern or create team?",
+        choices: ["Engineer", "intern", "create team"]
+    }];
+    inquirer.prompt(input).then
 
+}
 
 //Function for when intern or engineer is filled in it returns back to menu
 
@@ -98,11 +110,20 @@ function writeToFile(fileName, data) {
 function init() {
     employeeManager()
         .then(function (data) {
-            const response = generateProfile(data, questions);
-            console.log(data);
-            writeToFile("index.html", response)
+            console.log(data)
+            let currentManager = new Manager(data.name, data.id, data.email, data.officeNumber)
+            employees.push(currentManager);
+            console.log(employees)
+            choice()
+
         })
 }
 
 // Function call to initialize app
 init();
+
+// .then(function (data) {
+//     const response = generateProfile(data, questions);
+//     console.log(data);
+//     writeToFile("index.html", response)
+// })
