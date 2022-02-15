@@ -8,92 +8,120 @@ const Manager = require('./lib/manager')
 
 const generateProfile = require('./utils/generateProfile.js');
 
-var employees = []; 
+var employees = [];
 
 //Manager Function to ask for name, id, email and office number
 function employeeManager() {
-    const input = [{
-        type: "input",
-        message: "What is your name?",
-        name: "name"
-    }, {
-        type: "input",
-        message: "What is your ID?",
-        name: "id"
-    }, {
-        type: "input",
-        message: "What is your email?",
-        name: "email"
-    }, {
-        type: "input",
-        message: "What is your office number?",
-        name: "officeNumber"
-    }];
-    return inquirer.prompt(input);
+    inquirer.prompt([
+        {
+            type: "input",
+            message: "What is your name?",
+            name: "name"
+        }, {
+            type: "input",
+            message: "What is your ID?",
+            name: "id"
+        }, {
+            type: "input",
+            message: "What is your email?",
+            name: "email"
+        }, {
+            type: "input",
+            message: "What is your office number?",
+            name: "office"
+        }
+    ])
+        .then(response => {
+            console.log(response)
+            let currentManager = new Manager(response.name, response.id, response.email, response.office)
+            employees.push(currentManager);
+            console.log(employees)
+            choice()
+        })
 }
 
 //Engineer Function to ask for name, id, email, github
 function employeeEngineer() {
-    const input = [{
-        type: "input",
-        message: "What is your name?",
-        name: "name"
-    }, {
-        type: "input",
-        message: "What is your ID?",
-        name: "id"
-    }, {
-        type: "input",
-        message: "What is your email?",
-        name: "email"
-    }, {
-        type: "input",
-        message: "What is your github?",
-        name: "github"
-    }];
-    return inquirer.prompt(input);
+    inquirer.prompt([
+        {
+            type: "input",
+            message: "What is your name?",
+            name: "name"
+        }, {
+            type: "input",
+            message: "What is your ID?",
+            name: "id"
+        }, {
+            type: "input",
+            message: "What is your email?",
+            name: "email"
+        }, {
+            type: "input",
+            message: "What is your github?",
+            name: "github"
+        }
+    ])
+        .then(response => {
+            console.log(response)
+            let currentEngineer = new Engineer(response.name, response.id, response.email, response.github)
+            employees.push(currentEngineer);
+            console.log(employees)
+            choice()
+        })
 }
 
 //Intern Function to ask for name, id, email, school
 function employeeIntern() {
-    const input = [{
-        type: "input",
-        message: "What is your name?",
-        name: "name"
-    }, {
-        type: "input",
-        message: "What is your ID?",
-        name: "id"
-    }, {
-        type: "input",
-        message: "What is your email?",
-        name: "email"
-    }, {
-        type: "input",
-        message: "What school did you attend?",
-        name: "officeNumber"
-    }];
-    inquirer.prompt(input).then
-    //store data
-    choice()
+    inquirer.prompt([
+        {
+            type: "input",
+            message: "What is your name?",
+            name: "name"
+        }, {
+            type: "input",
+            message: "What is your ID?",
+            name: "id"
+        }, {
+            type: "input",
+            message: "What is your email?",
+            name: "email"
+        }, {
+            type: "input",
+            message: "What school did you attend?",
+            name: "school"
+        }
+    ])
+        .then(response => {
+            console.log(response)
+            let currentIntern = new Intern(response.name, response.id, response.email, response.school)
+            employees.push(currentIntern);
+            console.log(employees)
+            choice()
+        })
 }
 
-//Function to trigger after manager info, asking to add engineers or interns
+//Function to trigger after adding manager, engineer or intern info
+//asking to add another employee or create team
 function choice() {
-    const input = [{
-        type: "list",
-        message: "Add an enginner or intern or create team?",
-        choices: ["Engineer", "intern", "create team"]
-    }];
-    inquirer.prompt(input).then
-
-}
-
-//Function for when intern or engineer is filled in it returns back to menu
-
-
-//Function to run when I have decided to finish building my team
-
+    inquirer.prompt([
+        {
+            type: "list",
+            message: "Add an enginner or intern or create team?",
+            choices: ["engineer", "intern", "create team"],
+            name: "selection"
+        },
+    ])
+        .then(response => {
+            console.log(response.selection)
+            if (response.selection === "engineer") {
+                employeeEngineer()
+            } else if (response.selection === "intern") {
+                employeeIntern()
+            } else if (response.selection === "create team") {
+                generateProfile()
+            }
+        })
+};
 
 // Function to write README file
 function writeToFile(fileName, data) {
@@ -109,18 +137,14 @@ function writeToFile(fileName, data) {
 // Function to initialize app
 function init() {
     employeeManager()
-        .then(function (data) {
-            console.log(data)
-            let currentManager = new Manager(data.name, data.id, data.email, data.officeNumber)
-            employees.push(currentManager);
-            console.log(employees)
-            choice()
 
-        })
 }
 
 // Function call to initialize app
 init();
+
+
+//Function to run when I have decided to finish building my team
 
 // .then(function (data) {
 //     const response = generateProfile(data, questions);
