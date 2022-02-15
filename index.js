@@ -1,6 +1,12 @@
 const inquier = require('inquirer');
 const fs = require('fs');
-const generateMarkdown = require('./utils/generateProfile.js');
+
+const Employee = require('./lib/employee')
+const Engineer = require('./lib/engineer')
+const Intern = require('./lib/intern')
+const Manager = require('./lib/manager')
+
+const generateProfile = require('./utils/generateProfile.js');
 
 //Array of questions for user input
 const questions = [
