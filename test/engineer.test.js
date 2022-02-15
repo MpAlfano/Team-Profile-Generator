@@ -22,4 +22,49 @@ describe('Engineer', () => {
             expect(cb).toThrowError(errorMsg)
         })
     })
+    describe('getName', () => {
+        it('Should return Engineer name property', () => {
+            let expectedName = 'Joe';
+
+            let newEngineer = new Engineer(expectedName, 1, "testemail" )
+
+            expect(newEngineer.name).toEqual(expectedName);
+        })
+    })
+    describe('getId', () => {
+        it('Should return Engineer id property', () => {
+            let expectedId = '1';
+
+            let newEngineer = new Engineer('Joe', expectedId, "testemail" )
+
+            expect(newEngineer.id).toEqual(expectedId);
+        })
+    })
+    describe('getEmail', () => {
+        it('Should return Engineer email property', () => {
+            let expectedEmail = 'testemail';
+
+            let newEngineer = new Engineer('Joe', 1, expectedEmail )
+
+            expect(newEngineer.email).toEqual(expectedEmail);
+        })
+    })
+    describe('getgithub', () => {
+        it('Should return Engineer github property', () => {
+            let expectedGithub = 'testhub';
+
+            let newEngineer = new Engineer('Joe', 1, "testemail", expectedGithub )
+
+            expect(newEngineer.github).toEqual(expectedGithub);
+        })
+    })
+    describe('getRole', () => {
+        it('Should return Engineer role property', () => {
+            let expectedRole = 'Engineer';
+
+            let newEngineer = new Engineer('Joe', 1, "testemail" )
+
+            expect(newEngineer.getRole()).toEqual(expectedRole);
+        })
+    })
 })

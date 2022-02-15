@@ -22,4 +22,49 @@ describe('Manager', () => {
             expect(cb).toThrowError(errorMsg)
         })
     })
+    describe('getName', () => {
+        it('Should return Manager name property', () => {
+            let expectedName = 'Joe';
+
+            let newManager = new Manager(expectedName, 1, "testemail" )
+
+            expect(newManager.name).toEqual(expectedName);
+        })
+    })
+    describe('getId', () => {
+        it('Should return Manager id property', () => {
+            let expectedId = '1';
+
+            let newManager = new Manager('Joe', expectedId, "testemail" )
+
+            expect(newManager.id).toEqual(expectedId);
+        })
+    })
+    describe('getEmail', () => {
+        it('Should return Manager email property', () => {
+            let expectedEmail = 'testemail';
+
+            let newManager = new Manager('Joe', 1, expectedEmail )
+
+            expect(newManager.email).toEqual(expectedEmail);
+        })
+    })
+    describe('getofficeNumber', () => {
+        it('Should return Manager email property', () => {
+            let expectedofficeNumber = '1';
+
+            let newManager = new Manager('Joe', 1, "testemail", expectedofficeNumber)
+
+            expect(newManager.officeNumber).toEqual(expectedofficeNumber);
+        })
+    })
+    describe('getRole', () => {
+        it('Should return Manager role property', () => {
+            let expectedRole = 'Manager';
+
+            let newManager = new Manager('Joe', 1, "testemail" )
+
+            expect(newManager.getRole()).toEqual(expectedRole);
+        })
+    })
 })
