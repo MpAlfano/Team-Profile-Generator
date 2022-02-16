@@ -1,7 +1,6 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 
-const Employee = require('./lib/employee')
 const Engineer = require('./lib/engineer')
 const Intern = require('./lib/intern')
 const Manager = require('./lib/manager')
@@ -32,10 +31,8 @@ function employeeManager() {
         }
     ])
         .then(response => {
-            console.log(response)
             let currentManager = new Manager(response.name, response.id, response.email, response.office, `role: 'Manager'` )
             employees.push(currentManager);
-            console.log(employees)
             choice()
         })
 }
@@ -62,10 +59,8 @@ function employeeEngineer() {
         }
     ])
         .then(response => {
-            console.log(response)
             let currentEngineer = new Engineer(response.name, response.id, response.email, response.github)
             employees.push(currentEngineer);
-            console.log(employees)
             choice()
         })
 }
@@ -92,10 +87,8 @@ function employeeIntern() {
         }
     ])
         .then(response => {
-            console.log(response)
             let currentIntern = new Intern(response.name, response.id, response.email, response.school)
             employees.push(currentIntern);
-            console.log(employees)
             choice()
         })
 }
@@ -112,7 +105,6 @@ function choice() {
         },
     ])
         .then(response => {
-            console.log(response.selection)
             if (response.selection === "engineer") {
                 employeeEngineer()
             } else if (response.selection === "intern") {

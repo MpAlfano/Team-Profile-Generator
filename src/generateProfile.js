@@ -29,7 +29,7 @@ const generateEngineer = function (engineer) {
       <div class="card-body">
           <p class="id">ID: ${engineer.id}</p>
           <p class="email">Email: <a href="mailto:${engineer.email}">${engineer.email}</a></p>
-          <p class="github">Github: <a href="https://github.com/${engineer.github}">${engineer.github}</a></p>
+          <p class="github">Github: <a href="https://github.com/${engineer.github}" target="_blank">${engineer.github}</a></p>
       </div>
   </div>
 </div>
@@ -82,14 +82,13 @@ function generateProfile(employees) {
   }
   
   const employeeCards = cards.join('');
-
-  const generateTeam = generateHtml(employeeCards);
+  const employeeTeam = generateHTML(employeeCards);
   
-  return generateTeam;
+  return employeeTeam;
 
 }
 
-const generateHtml = function (employeeCards) {
+const generateHTML = function (employeeCards) {
 
     return `
 <!DOCTYPE html>    
@@ -113,7 +112,7 @@ const generateHtml = function (employeeCards) {
               <div class="container">
                   <div class="row justify-content-center" id="team-cards">
 
-                    <!--Team Cards-->
+                    <!--Adding employee Cards-->
                     ${employeeCards}
                   </div>
               </div>
@@ -125,29 +124,4 @@ const generateHtml = function (employeeCards) {
 
   `
 }
-
   module.exports = generateProfile;
-  
-//   <html lang="en">
-//   <head>
-//     <meta charset="UTF-8" />
-//     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-//     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-//     <title>Team Profile</title>
-//             // <link rel="stylesheet" href="styles/jass.css" />
-//   </head>
-//   <body>
-//     <main>
-
-
-
-
-
-
-
-
-
-    
-//     </main>
-//   </body>
-// </html>
