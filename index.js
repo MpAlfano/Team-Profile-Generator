@@ -6,9 +6,9 @@ const Engineer = require('./lib/engineer')
 const Intern = require('./lib/intern')
 const Manager = require('./lib/manager')
 
-const generateProfile = require('./utils/generateProfile.js');
+const generateProfile = require('./src/generateProfile.js');
 
-var employees = [];
+const employees = [];
 
 //Manager Function to ask for name, id, email and office number
 function employeeManager() {
@@ -33,7 +33,7 @@ function employeeManager() {
     ])
         .then(response => {
             console.log(response)
-            let currentManager = new Manager(response.name, response.id, response.email, response.office)
+            let currentManager = new Manager(response.name, response.id, response.email, response.office, `role: 'Manager'` )
             employees.push(currentManager);
             console.log(employees)
             choice()
@@ -118,7 +118,7 @@ function choice() {
             } else if (response.selection === "intern") {
                 employeeIntern()
             } else if (response.selection === "create team") {
-                generateProfile()
+                generateTeamProfile()
             }
         })
 };
@@ -137,17 +137,16 @@ function writeToFile(fileName, data) {
 // Function to initialize app
 function init() {
     employeeManager()
+}
 
+//Function to run when I have decided to finish building my team
+function generateTeamProfile() {
+    console.log(employees)
+    employees.forEach(employee => console.log(employee))
+    const response = generateProfile(employees)
+    console.log(response);
+    writeToFile("./dist/index.html", response)
 }
 
 // Function call to initialize app
 init();
-
-
-//Function to run when I have decided to finish building my team
-
-// .then(function (data) {
-//     const response = generateProfile(data, questions);
-//     console.log(data);
-//     writeToFile("index.html", response)
-// })

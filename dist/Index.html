@@ -1,57 +1,63 @@
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fetch GET Requests</title>
-    <link rel="stylesheet" href="styles/jass.css" />
-  </head>
-  <body>
-    <section class="jumbotron">
-      <h1>Job Postings</h1>
-    </section>
-    <div class="articles container p-5" id="articles">
-      <div class="card card-rounded">
-        <div class="card-header">Automation Engineer</div>
-        <div class="card-body">
-          <b>Google</b> is proud to boast a network that provides services to
-          millions of Internet users around the globe. As a network engineer you
-          will be responsible for reliability and scale of network
-          infrastructure.
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Team Profile</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header>
+    <nav class="navbar" id="navbar">
+      <span class="navbar-brand mb-0 h1 w-100 text-center" id="navbar-text">Team Profile</span>
+    </nav>
+  </header>
+  <main>
+    <div class="container">
+      <div class="row justify-content-center" id="team-cards">
+
+
+        <div class="col-4 mt-4">
+          <div class="card h-100">
+            <div class="card-header">
+              <h3>mark</h3>
+              <h4>Manager</h4><i class="material-icons">content_paste</i>
+            </div>
+            <div class="card-body">
+              <p class="id">ID: 44</p>
+              <p class="email">Email: <a href="mailto:mpal">mpal</a></p>
+              <p class="office">Office Number: 334</p>
+            </div>
+          </div>
         </div>
-        <img class="card-image" src="images/google.png" />
-        <div class="card-footer"><a href="#">Apply</a></div>
-      </div>
-      <div class="card card-rounded">
-        <div class="card-header">Technical Writer</div>
-        <div class="card-body">
-          <b>Built In Austin</b> is home for news, job postings, and community
-          events centered around Austin's thriving tech industry. As a Technical
-          Writer you will write articles and manage online content.
+
+        <div class="col-4 mt-4">
+          <div class="card h-100">
+            <div class="card-header">
+              <h3>jfoe</h3>
+              <h4>Intern</h4><i class="material-icons">assignment_ind</i>
+            </div>
+            <div class="card-body">
+              <p class="id">ID: 444</p>
+              <p class="email">Email:<a href="mailto:mmap">mmap</a></p>
+              <p class="school">School: uoft</p>
+            </div>
+          </div>
         </div>
-        <img class="card-image" src="images/bia.jpg" />
-        <div class="card-footer"><a href="#">Apply</a></div>
-      </div>
-      <div class="card card-rounded">
-        <div class="card-header">Front End Web Developer</div>
-        <div class="card-body">
-          <b>Atlassian</b> is searching for a talented Full Stack Web Developer
-          to join our Buyer Experience/e-Commerce team. You'll be joining a
-          multi-functional team that builds and design's Atlassian's core web
-          experience across sites like atlassian.com, statuspage.io,
-          bitbucket.org, trello.com, opsgenie.com and more. Our team has a
-          substantial impact on the growth of Atlassian, and we're committed to
-          pushing current trends in web development in order to create a
-          cutting-edge experience across our brand.
-          <b>This is a real position, click the link to apply!</b>
-        </div>
-        <img class="card-image" src="images/at.png" />
-        <div class="card-footer">
-          <a
-            href="https://www.atlassian.com/company/careers/detail/67badd7a-c93b-47fe-b082-fa8220ac6325"
-            >Apply</a
-          >
+
       </div>
     </div>
-  </body>
+
+
+  </main>
+</body>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+  integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
 </html>
