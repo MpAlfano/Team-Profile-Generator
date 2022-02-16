@@ -50,7 +50,7 @@ describe('Intern', () => {
         })
     })
     describe('getgithub', () => {
-        it('Should return Intern github property', () => {
+        it('Should return Intern school property', () => {
             let expectedSchool = 'UofT';
 
             let newIntern = new Intern('Joe', 1, "testemail", expectedSchool )

@@ -66,17 +66,14 @@ function generateProfile(employees) {
     //manager function callsites
     if(role === 'Manager') {
       const managerCard = generateManager(employee);
-
       cards.push(managerCard);
-    }
-    if(role === 'Engineer') {
+
+    } else if (role === 'Engineer') {
       const engineerCard = generateEngineer(employee);
-
       cards.push(engineerCard);
-    }
-    if(role === 'Intern') {
-      const internCard = generateIntern(employee);
 
+    } else if (role === 'Intern') {
+      const internCard = generateIntern(employee);
       cards.push(internCard);
     }
   }
