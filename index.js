@@ -31,7 +31,7 @@ function employeeManager() {
         }
     ])
         .then(response => {
-            let currentManager = new Manager(response.name, response.id, response.email, response.office, `role: 'Manager'` )
+            let currentManager = new Manager(response.name, response.id, response.email, response.office)
             employees.push(currentManager);
             choice()
         })

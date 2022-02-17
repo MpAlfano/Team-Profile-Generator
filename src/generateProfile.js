@@ -55,15 +55,16 @@ const generateIntern = function (intern) {
     `
 }
 
+// function to create cards for team members
 function generateProfile(employees) {
 
   cards = [];
-
+// Going through the employees and sorting manage, engineer and intern to make cards
   for(let i = 0; i < employees.length; i++) {
     const employee = employees[i];
     const role = employee.getRole();
 
-    //manager function callsites
+    
     if(role === 'Manager') {
       const managerCard = generateManager(employee);
       cards.push(managerCard);
@@ -84,7 +85,7 @@ function generateProfile(employees) {
   return employeeTeam;
 
 }
-
+// Creating the html
 const generateHTML = function (employeeCards) {
 
     return `
@@ -106,13 +107,13 @@ const generateHTML = function (employeeCards) {
             </nav>
         </header>
         <main>
-              <div class="container">
-                  <div class="row justify-content-center" id="team-cards">
+            <div class="container">
+                <div class="row justify-content-center" id="team-cards">
 
-                    <!--Adding employee Cards-->
-                    ${employeeCards}
-                  </div>
-              </div>
+                  <!--Added employee Cards-->
+                  ${employeeCards}
+                </div>
+            </div>
 
 
       </main>
