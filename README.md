@@ -14,7 +14,7 @@
 
   ## Installation
 
-  To install run npm install
+  To install run npm install  
   Then run node index.js
 
   ## Demo
