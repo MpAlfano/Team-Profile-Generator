@@ -21,7 +21,7 @@
   
   [demo](https://user-images.githubusercontent.com/96558916/154392333-fee69cdf-d86e-4e50-8f11-a069dbbd2f34.png)
 
-    ![Watch the video here](https://drive.google.com/file/d/1SEgfOOYlcsP_NGAnhDHhQlTAogMmE3SJ/view)
+    [Watch the video here](https://drive.google.com/file/d/1SEgfOOYlcsP_NGAnhDHhQlTAogMmE3SJ/view)
     
     
 
